@@ -13,6 +13,11 @@ class MyDict(dict):
     AttributeError
     """
     def __getattr__(self, name):
+        """
+        перехватываем обращение атрибута которого нет в классе
+        :param name: имя атрибута
+        :return: значение по ключу или ошибку
+        """
         try:
             return self[name]
         except KeyError:
